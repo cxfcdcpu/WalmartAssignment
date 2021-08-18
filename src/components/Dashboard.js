@@ -14,7 +14,8 @@ class Dashboard extends Component {
         <section className="section mt-3">
       <div>
         <Navbar bg="light">
-          <Navbar.Brand>Dashboard</Navbar.Brand>
+          <Navbar.Brand>Dashboard - Total number of registered students: {this.props.passedProp.items.length}</Navbar.Brand>
+
         </Navbar>
         <Container>
           <Row >
