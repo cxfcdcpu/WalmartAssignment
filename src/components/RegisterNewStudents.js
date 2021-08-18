@@ -41,12 +41,12 @@ class RegisterNewStudents extends Component {
     const errors = [];
 
     //firstname only accept alphabets
-    if (!validator.isAlpha(this.state.firstname)) {
+    if (!validator.isAlpha(this.state.firstname.trim())) {
       errors.push("firstname");
     }
 
     //lastname only accept alphabets
-    if ( !validator.isAlpha(this.state.lastname)) {
+    if ( !validator.isAlpha(this.state.lastname.trim())) {
       errors.push("lastname");
     }
 
@@ -58,7 +58,7 @@ class RegisterNewStudents extends Component {
     }
 
     //Phone number only accept numbers
-    if ( !validator.isMobilePhone(this.state.mobile)) {
+    if ( !validator.isMobilePhone(this.state.mobile.trim())) {
       errors.push("mobile");
     }
 
@@ -71,9 +71,9 @@ class RegisterNewStudents extends Component {
     } else {
         this.props.passedProp.items.forEach(element => {
 
-          if (element.firstname === this.state.firstname
-              && element.lastname === this.state.lastname
-              && element._mobile === this.state.mobile
+          if (element.firstname === this.state.firstname.trim()
+              && element.lastname === this.state.lastname.trim()
+              && element._mobile === this.state.mobile.trim()
           ) {
             errors.push("duplicate");
             return false;
@@ -102,12 +102,12 @@ class RegisterNewStudents extends Component {
     const curDate = new Date();
     let age = Math.floor((curDate.getTime()-enteredDate)/(365*24*3600000));
     let ageStr = age>20? age+" Yrs":age+" Yrs (Minor)"
-    let mobile = this.normalizeNumber(this.state.mobile,"1");
+    let mobile = this.normalizeNumber(this.state.mobile.trim());
     return {
-      "firstname":this.state.firstname,
-      "lastname":this.state.lastname,
+      "firstname":this.state.firstname.trim(),
+      "lastname":this.state.lastname.trim(),
       "DOB":this.state.DOB,
-      "_mobile":this.state.mobile,
+      "_mobile":this.state.mobile.trim(),
       "Mobile":mobile,
       "birthmark":this.state.BirthMark,
       "Name": name,
