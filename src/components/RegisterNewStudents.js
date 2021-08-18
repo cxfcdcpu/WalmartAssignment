@@ -129,7 +129,7 @@ class RegisterNewStudents extends Component {
         <section className="section mt-3">
       <div>
         <Navbar bg="light">
-          <Navbar.Brand>Register new students</Navbar.Brand>
+          <Navbar.Brand>Register new students - Total number of registered students: {this.props.passedProp.items.length}</Navbar.Brand>
 
         </Navbar>
         <Container>
